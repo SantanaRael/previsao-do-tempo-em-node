@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./style/style.css">
+
+  <title>Previsão do Tempo</title>
+</head>
+<body>
+
+
+  <div class="container">
+      <h1>Consulta de Previsão do Tempo</h1>
+
+  <label for="cityInput">Cidade:</label>
+  <input type="text" id="cityInput" placeholder="Informe a cidade">
+
+  <label for="countryInput">País:</label>
+  <input type="text" id="countryInput" placeholder="Informe o país">
+
+  <button onclick="getWeather()">Obter Previsão do Tempo</button>
+
+  <div id="weatherResult"></div>
+  </div>
+
+  <script src="./src/script.js"></script>
+
+</body>
+</html>
