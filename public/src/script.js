@@ -1,5 +1,5 @@
 async function getWeather() {
-    const apiKey = '53616ea84b67432c94b2413566f41010';
+    const apiKey = 'MINHA-CHAVE'; //pegar key em https://home.openweathermap.org/api_keys
     const city = document.getElementById('cityInput').value;
     const country = document.getElementById('countryInput').value;
 
