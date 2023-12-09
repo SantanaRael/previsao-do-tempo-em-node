@@ -11,3 +11,18 @@ O projeto inicialmente está assim:
 mas quero estilizar o css dele para seguir o protótipo de interface que eu fiz:
 
 ![image](https://github.com/SantanaRael/previsao-do-tempo-em-node/assets/73674173/623c4f54-4d58-4584-88e5-4a17f8c876c7)
+
+
+Para ver a variações de condição do tempo:
+
+https://openweathermap.org/weather-conditions
+
+Pegar key em:
+
+https://home.openweathermap.org/api_keys
+
+Proximas atualizações:
+
+Adicionar imagem de acordo com a condição do tempo.
+
+Adicionar uma tela de carregamento.

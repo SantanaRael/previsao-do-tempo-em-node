@@ -4,25 +4,64 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./style/style.css">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
   <title>Previsão do Tempo</title>
 </head>
 <body>
 
 
-  <div class="container">
-      <h1>Consulta de Previsão do Tempo</h1>
+  <div class="home">
 
-  <label for="cityInput">Cidade:</label>
-  <input type="text" id="cityInput" placeholder="Informe a cidade">
+		<div id="btn-next" onclick="getDetails()"><i class='bx bxs-chevron-right' style='color:#ffffff'></i></div>
 
-  <label for="countryInput">País:</label>
-  <input type="text" id="countryInput" placeholder="Informe o país">
+		<div class="container">
 
-  <button onclick="getWeather()">Obter Previsão do Tempo</button>
+			<h1>Sua localização</h1>
+			<p>Encontre a cidade e o país que deseja obter informações detalhadas do tempo.</p>
 
-  <div id="weatherResult"></div>
-  </div>
+			<input type="text" id="cityInput" placeholder="	Informe a cidade">
+			<br><br>
+			<input type="text" id="countryInput" placeholder="	Informe o país">
+
+		</div>
+
+		<div class="info-container">
+			<div class="info-box">
+				<p id="temp-eua"></p>
+				<p>Nova Iorque</p>
+			</div>
+			<div class="info-box">
+				<p id="temp-paris"></p>
+				<p>Paris</p>
+			</div>
+			<div class="info-box">
+				<p id="temp-londres"></p>
+				<p>Londres</p>
+			</div>
+			<div class="info-box">
+				<p id="temp-dubai"></p>
+				<p>Dubai</p>
+			</div>
+		</div>
+
+	</div>
+
+	<div id="weatherResult">
+		<div id="btn-prev" onclick="getHome()"><i class='bx bxs-chevron-left' style='color:#ffffff'></i></div>
+		<p id="city"></p>
+		<div class="svg">
+			<i class='bx bx-sun' style='color:#ffffff'></i>
+
+		</div>
+		<p id="temperatura"></p>
+		<div class="more-info">
+			<p id="umidade"></p>
+			<p id="velvento"></p>
+			<p id="chance"></p>
+		</div>
+
+	</div>
 
   <script src="./src/script.js"></script>
 
