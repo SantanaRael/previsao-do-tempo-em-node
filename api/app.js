@@ -4,7 +4,7 @@ const axios = require('axios');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
-const apiKey = '53616ea84b67432c94b2413566f41010'; //pegar key em https://home.openweathermap.org/api_keys
+const apiKey = 'MINHA_KEY'; //pegar key em https://home.openweathermap.org/api_keys
 
 app.use(cors());
 
