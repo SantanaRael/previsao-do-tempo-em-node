@@ -4,12 +4,12 @@ const axios = require('axios');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
-const apiKey = 'MINHA-KEY'; //pegar key em https://home.openweathermap.org/api_keys
+const apiKey = '53616ea84b67432c94b2413566f41010'; //pegar key em https://home.openweathermap.org/api_keys
 
 app.use(cors());
 
 app.listen(PORT, () => {
-  console.log(`Servidor funcionando na porta ${PORT} 🔥`);
+  console.log(`Servidor funcionando em http://localhost:${PORT}/weather 🔥`);
 });
 
 app.get('/weather', async (req, res) => {
@@ -27,8 +27,6 @@ app.get('/weather', async (req, res) => {
     const humidity = weatherData.main.humidity;
     const windSpeed = weatherData.wind.speed * 3.6; // Convertendo para km/h
     const rainChance = weatherData.rain ? (weatherData.rain['1h'] || 0) : 0; // Chance de chuva em 1 hora
-
-    // Adicionando condição meteorológica
     const weatherCondition = weatherData.weather && weatherData.weather.length > 0 ? weatherData.weather[0].description : 'Desconhecido';
 
     res.json({ temperature, humidity, windSpeed, rainChance, weatherCondition });

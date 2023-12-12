@@ -4,16 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./style/style.css">
+  <link rel="icon" href="https://img.icons8.com/?size=256&id=15352&format=png">
+
   <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
   <title>Previsão do Tempo</title>
 </head>
 <body>
 
+	  <div id="loadingScreen">
+		<div class="loader"></div>
+	  </div>
 
   <div class="home">
 
-		<div id="btn-next" onclick="getDetails()"><i class='bx bxs-chevron-right' style='color:#ffffff'></i></div>
+		<div id="btn-next" style='margin-top: 7px;	font-size: 40px;' onclick="getDetails()"><i class='bx bxs-chevron-right' style='color:#ffffff'></i></div>
 
 		<div class="container">
 
@@ -48,11 +53,9 @@
 	</div>
 
 	<div id="weatherResult">
-		<div id="btn-prev" onclick="getHome()"><i class='bx bxs-chevron-left' style='color:#ffffff'></i></div>
+		<div id="btn-prev" style='margin-top: 7px;	font-size: 40px;' onclick="getHome()"><i class='bx bxs-chevron-left' style='color:#ffffff'></i></div>
 		<p id="city"></p>
 		<div class="svg">
-			<i class='bx bx-sun' style='color:#ffffff'></i>
-
 		</div>
 		<p id="temperatura"></p>
 		<div class="more-info">

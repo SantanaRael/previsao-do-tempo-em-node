@@ -23,6 +23,6 @@ https://home.openweathermap.org/api_keys
 
 Proximas atualizações:
 
-Adicionar imagem de acordo com a condição do tempo.
+Responsividade ->
 
-Adicionar uma tela de carregamento.
+Criar layout para tablet e PC
