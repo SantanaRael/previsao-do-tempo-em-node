@@ -1,4 +1,4 @@
-const apiKey = '53616ea84b67432c94b2413566f41010';
+const apiKey = 'MINHA_KEY';
 
 // Elementos HTML para a tela de carregamento
 const loadingScreen = document.querySelector("#loadingScreen");
