@@ -1,7 +1,8 @@
-const apiKey = 'MINHA_KEY';
+const apiKey = '53616ea84b67432c94b2413566f41010';
 
 // Elementos HTML para a tela de carregamento
 const loadingScreen = document.querySelector("#loadingScreen");
+let larguraPagina = document.documentElement.clientWidth;
 
 // Mostra a tela de carregamento
 function showLoading() {
@@ -69,7 +70,7 @@ async function getWeather() {
     const data = await response.json();
 
     const cidade = document.querySelector("#city");
-    const temperatura = document.querySelector("#temperatura");
+    const temperatura = document.querySelector(".svg p");
     const umidade = document.querySelector("#umidade");
     const velvento = document.querySelector("#velvento");
     const chance = document.querySelector("#chance");
@@ -96,24 +97,29 @@ let home = document.querySelector(".home");
 async function getDetails() {
   await getCondition();
   await getWeather();
-  home.style.display = "none";
-  weatherResult.style.display = "block";
+  if(larguraPagina < 389){
+    home.style.display = "none";
+    weatherResult.style.display = "block";
+  }
 }
 
 
 
 function getHome() {
+
+  if(larguraPagina < 389){
 	home.style.display = "block";
 	weatherResult.style.display = "none";
+  }
 }
 
 function getCondition(){
-    let ensolarado = "<i class='bx bx-sun' style='color:#ffffff'></i>"
-    let chuva = "<i class='bx bx-cloud-light-rain' style='color:#ffffff'></i>"
-    let trovoada = "<i class='bx bx-cloud-lightning'></i>"
-    let nuvem = "<i class='bx bx-cloud'></i>"
+    let ensolarado = "bx-sun"
+    let chuva = "bx-cloud-light-rain"
+    let trovoada = "bx-cloud-lightning"
+    let nuvem = "bx-cloud"
 
-    let svg = document.querySelector(".svg")
+    let icon = document.querySelector(".svg i")
 
     getWeather().then(weatherCondition => {
         switch (weatherCondition) {
@@ -121,11 +127,11 @@ function getCondition(){
             case "few clouds":
             case "scattered clouds":
             case "overcast clouds":
-              svg.innerHTML = nuvem;
+              icon.classList.add(nuvem);
               break;
           
             case "clear sky":
-              svg.innerHTML = ensolarado;
+              icon.classList.add(ensolarado);
               break;
           
             case "light rain":
@@ -138,7 +144,7 @@ function getCondition(){
             case "shower rain":
             case "heavy intensity shower rain":
             case "ragged shower rain":
-              svg.innerHTML = chuva;
+              icon.classList.add(chuva);
               break;
           
             case "thunderstorm with light rain":
@@ -151,11 +157,11 @@ function getCondition(){
             case "thunderstorm with light drizzle":
             case "thunderstorm with drizzle":
             case "thunderstorm with heavy drizzle":
-              svg.innerHTML = trovoada;
+              icon.classList.add(trovoada);
               break;
           
             default:
-              svg.innerHTML = ensolarado;
+              icon.classList.add(ensolarado);
           }
           
       });

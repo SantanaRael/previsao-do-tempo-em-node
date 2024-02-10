@@ -200,19 +200,137 @@
 @media only screen and (min-width: 389px) {
 	
 	body {
-	background-color: white;
+	background-color: #020f1f;
+	
 	}
 	
 	.fromPC{
-	background-color:#020f1f;
-	width:350px ;
-	height: 590px;
-	padding: 20px;
-	border-radius:30px;
-	position: relative;
-	position: absolute;
-  	top: 50%;
- 	left: 50%;
-  	transform: translate(-50%, -50%);
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		grid-template-rows: 1fr;
+		grid-column-gap: 10px;
+		grid-row-gap: 10px;
 	}
+
+	#weatherResult{
+		display: block;
+		width: 350px;
+		height: 200px;
+
+	}
+
+	#btn-prev{
+		display: none;
+	}
+
+	#city{
+		position: relative;	
+		top: 35px;
+	}
+
+	.svg{
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		grid-template-rows: 1fr;
+		grid-column-gap: 10px;
+		grid-row-gap: 10px;
+		width: 400px;
+		background-color: #15243B;
+		left: 40px;
+		border-radius: 20px;
+
+	}
+
+	.svg p{
+		background-color: #15243B;
+		width: 250px;
+		height: 250px;
+		display: flex;
+		justify-content: center; 
+		align-items: center; 
+		border-radius: 20px 0 0 20px;
+		font-size: 80px !important;
+		margin: 0;
+	}
+
+	.svg i{
+		background-color: #15243B;
+		width: 250px;
+		height: 250px;
+		display: flex;
+		justify-content: center; 
+		align-items: center; 
+		border-radius: 0 20px 20px 0;
+		font-size: 120px !important;
+		margin: 0;
+		padding: 0;
+	}
+
+
+
+
+	.more-info{
+		top: 20px;
+		font-size: 20px !important;
+		margin: 0;
+
+
+	}
+
+	#velvento{
+		width: 500px;
+	}
+
+	#weatherResult :nth-child(4) {
+		text-align: left;
+		font-size: 50px;
+	}
+
+	.container {
+		width: 97%;
+		top: 20px;
+
+	}
+	.container :nth-child(2){
+		width: 400px ;
+		left: 9vw !important;
+		position: relative;
+	}
+
+
+
+	.info-container{
+		top: -20px;
+	}
+
+
+
+
+}
+
+
+@media only screen and (max-width: 975px) {
+
+	
+	.fromPC {
+		display: grid;
+		justify-content: center; /* Centraliza horizontalmente */
+		grid-template-columns: 1fr;
+		grid-template-rows: repeat(2, 1fr);
+		grid-column-gap: 0px;
+		grid-row-gap: 0px;
+	}
+
+	#weatherResult{
+		align-items: center;
+		justify-content: center; /* Centraliza horizontalmente */
+		margin-left: 15vw;
+		margin-right: auto;
+	}
+
+	.container :nth-child(2){
+		left: 25vw !important;
+	}
+	
+
 }
