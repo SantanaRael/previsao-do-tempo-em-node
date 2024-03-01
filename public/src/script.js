@@ -1,4 +1,4 @@
-const apiKey = '53616ea84b67432c94b2413566f41010';
+const apiKey = 'API_KEY';
 
 // Elementos HTML para a tela de carregamento
 const loadingScreen = document.querySelector("#loadingScreen");
@@ -97,20 +97,17 @@ let home = document.querySelector(".home");
 async function getDetails() {
   await getCondition();
   await getWeather();
-  if(larguraPagina < 389){
     home.style.display = "none";
     weatherResult.style.display = "block";
-  }
 }
 
 
 
 function getHome() {
 
-  if(larguraPagina < 389){
 	home.style.display = "block";
 	weatherResult.style.display = "none";
-  }
+  
 }
 
 function getCondition(){

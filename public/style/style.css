@@ -1,336 +1,172 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
-
-
-
-	* {
-		color: white;
-		font-family: "Roboto", sans-serif;
-	}
-
-	body {
-		background-color: #020f1f;
-	}
-
-
-
-	.container {
-		width: 97%;
-		position: relative;
-		top: 70px;
-		height: 400px;
-	}
-
-	.container h1,
-	.container :nth-child(2) {
-		text-align: center;
-	}
-
-	.container :nth-child(2) {
-		color: #364252;
-	}
-
-	.container input {
-		padding: 10px;
-		width: 230px;
-		border: none;
-		border-radius: 10px;
-		background-color: #364252;
-		color: #fff;
-		outline: none;
-		display: block;
-		margin-left: auto;
-		margin-right: auto;
-        	text-transform: capitalize;
-	}
-
-	.container input:nth-child(3) {
-		margin-top: 60px;
-	}
-
-	.container input:focus {
-		background-color: #475a6b;
-		box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
-	}
-
-	#weatherResult {
-		display: none;
-	}
-
-	#btn-next {
-		position: absolute;
-		width: 30px;
-		height: 30px;
-		font-size: 25px;
-		top: 5px;
-		right: 10px;
-		cursor: pointer;
-		color: white;
-	}
-
-	.info-container {
-		display: grid;
-		grid-template-columns: repeat(2, 1fr);
-		grid-template-rows: repeat(2, 1fr);
-		grid-column-gap: 0px;
-		grid-row-gap: 0px;
-		width: 270px;
-		position: relative;
-		left: 50%;
-		margin-left: -135px;
-	}
-
-	.info-box {
-		background-color: #475a6b;
-		width: 115px;
-		height: 70px;
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		color: white;
-		margin: 10px;
-		border-radius: 10px;
-		box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
-	}
-	.info-box p {
-		margin: 0;
-		font-size: 14px;
-	}
-
-	.home {
-		display: block;
-	}
-
-	#btn-prev {
-		position: absolute;
-		width: 30px;
-		height: 30px;
-		font-size: 25px;
-		top: 5px;
-		left: 10px;
-		cursor: pointer;
-		color: white;
-	}
-
-	#weatherResult :nth-child(2) {
-		text-align: center;
-	}
-
-	#weatherResult .svg {
-		top: 20px;
-		width: 99%;
-		height: 250px;
-		position: relative;
-		text-align: center;
-		box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
-	}
-
-	.svg i {
-		font-size: 150px;
-		width: 150px;
-		height: 150px;
-		background-color: #475a6b;
-		position: relative;
-		padding: 40px;
-		border-radius: 20px;
-		box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
-	}
-
-	#weatherResult :nth-child(4) {
-		text-align: center;
-		font-size: 50px;
-	}
-
-	.more-info {
-		width: 75%;
-		height: 200px;
-		text-align: center;
-		align-items: center;
-		position: relative;
-		padding: 0 40px;
-	}
-
-	.more-info p {
-		width: 90%;
-		height: 20px;
-		background-color: #475a6b;
-		position: relative;
-		padding: 20px 5px 20px 5px;
-		border-radius: 10px;
-		box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
-	}
-
-	#city{
-		text-transform: capitalize;
-		font-weight: bold;
-		font-size: 20px;
-	}
-
-	#loadingScreen {
-		display: none;
-		width: 96%;
-		height: 96%;
-		background-color: #020f1f;
-		position: absolute;
-		z-index: 999999;
-		align-items: center;
-		justify-content: center;
-		height: 100vh;
-	  }
-
-	  /* Estilos para o círculo do loader */
-	  .loader {
-		border: 8px solid #f3f3f3; /* Cor da borda do círculo */
-		border-top: 8px solid #475a6b; /* Cor da borda do topo do círculo (indicando progresso) */
-		border-radius: 50%; /* Torna o círculo arredondado */
-		width: 50px;
-		height: 50px;
-		animation: spin 1s linear infinite; /* Adiciona animação de rotação */
-	  }
+/* Reset CSS */
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+  }
   
-	  /* Definição da animação de rotação */
-	  @keyframes spin {
-		0% { transform: rotate(0deg); }
-		100% { transform: rotate(360deg); }
-	  }
-	
-
-	
-/* Estilização para PC */
-@media only screen and (min-width: 389px) {
-	
-	body {
+  /* Global Styles */
+  body {
+	font-family: Arial, sans-serif;
 	background-color: #020f1f;
-	
+	color: white;
+  }
+  
+  .container {
+	max-width: 800px;
+	margin: 0 auto;
+	padding: 20px;
+  }
+  
+  /* Loading Screen */
+  #loadingScreen {
+	display: none; /* Ocultar por padrão */
+	height: 100vh;
+  }
+  
+  .loader {
+	border: 8px solid #f3f3f3;
+	border-radius: 50%;
+	border-top: 8px solid #3498db;
+	width: 50px;
+	height: 50px;
+	animation: spin 1s linear infinite;
+	margin: 20% auto;
+  }
+  
+  @keyframes spin {
+	0% {
+	  transform: rotate(0deg);
 	}
-	
-	.fromPC{
-		display: grid;
-		grid-template-columns: repeat(2, 1fr);
-		grid-template-rows: 1fr;
-		grid-column-gap: 10px;
-		grid-row-gap: 10px;
+	100% {
+	  transform: rotate(360deg);
 	}
+  }
+  
+  /* Weather Result */
+  #weatherResult {
+	display: none; /* Ocultar por padrão */
+  }
+  
+  .svg i{
+	text-align: center;
+	width: 200px;
+	height: 200px;
+	background-color: #475a6b;
+	margin: 50px 0px 50px 0;
+	font-size: 200px;
+	border-radius: 10px;
 
-	#weatherResult{
-		display: block;
-		width: 350px;
-		height: 200px;
+  }
+  
+  .more-info {
+	text-align: center;
+  }
+  
+  /* Home */
+  .home {
+	text-align: center;
+	padding: 20px;
+	margin-top: 30px;
+  }
+  
+  #btn-next,
+  #btn-prev {
+	margin-top: 7px;
+	font-size: 40px;
+	color: #ffffff;
+	cursor: pointer;
+  }
 
-	}
+  #btn-next{
+	width: 240px;
+	height: 30px;
+	background-color: #364252;
+	font-size: 20px;
+	border-radius: 10px;
 
-	#btn-prev{
-		display: none;
-	}
+  }
 
-	#city{
-		position: relative;	
-		top: 35px;
-	}
+  #btn-prev {
+	margin-top: 7px;
+	font-size: 40px;
+	color: #ffffff;
+	cursor: pointer;
+	position: absolute;
+	top: 35px;
+	left: 20px;
+  }
+  
+  /* Info Container */
+  .info-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+	margin-top: 20px;
+	color: black;
+  }
 
-	.svg{
-		display: grid;
-		grid-template-columns: repeat(2, 1fr);
-		grid-template-rows: 1fr;
-		grid-column-gap: 10px;
-		grid-row-gap: 10px;
-		width: 400px;
-		background-color: #15243B;
-		left: 40px;
-		border-radius: 20px;
+  center input {
+	padding: 10px;
+	width: 240px;
+	border: none;
+	border-radius: 10px;
+	background-color: #364252;
+	color: #fff;
+	outline: none;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	text-transform: capitalize;
+}
 
-	}
+center h3{
+	max-width: 500px;
+	padding: 20px;
+	color: #86868657;
 
-	.svg p{
-		background-color: #15243B;
-		width: 250px;
-		height: 250px;
-		display: flex;
-		justify-content: center; 
-		align-items: center; 
-		border-radius: 20px 0 0 20px;
-		font-size: 80px !important;
-		margin: 0;
-	}
+}
+  
 
-	.svg i{
-		background-color: #15243B;
-		width: 250px;
-		height: 250px;
-		display: flex;
-		justify-content: center; 
-		align-items: center; 
-		border-radius: 0 20px 20px 0;
-		font-size: 120px !important;
-		margin: 0;
-		padding: 0;
-	}
-
-
-
-
-	.more-info{
-		top: 20px;
-		font-size: 20px !important;
-		margin: 0;
-
-
-	}
-
-	#velvento{
-		width: 500px;
-	}
-
-	#weatherResult :nth-child(4) {
-		text-align: left;
-		font-size: 50px;
-	}
-
-	.container {
-		width: 97%;
-		top: 20px;
-
-	}
-	.container :nth-child(2){
-		width: 400px ;
-		left: 9vw !important;
-		position: relative;
-	}
-
-
-
-	.info-container{
-		top: -20px;
-	}
-
-
-
+.info-box {
+	width: 110px;
+	padding: 10px;
+	margin: 10px;
+	color: white;
+	background-color: #475a6b; 
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	border-radius: 10px;
 
 }
 
+  
 
-@media only screen and (max-width: 975px) {
+  .more-info {
+	min-width: 340px;
+	max-width: 600px;
+	padding: 0 40px;
+	flex-direction: column;
+   	justify-content: center;
+  	align-items: center;
+}
 
-	
-	.fromPC {
-		display: grid;
-		justify-content: center; /* Centraliza horizontalmente */
-		grid-template-columns: 1fr;
-		grid-template-rows: repeat(2, 1fr);
-		grid-column-gap: 0px;
-		grid-row-gap: 0px;
-	}
+.more-info p {
+	width: 100%;
+	min-width: 240px;
 
-	#weatherResult{
-		align-items: center;
-		justify-content: center; /* Centraliza horizontalmente */
-		margin-left: 15vw;
-		margin-right: auto;
-	}
+	margin-top: 10px;
+	background-color: #475a6b;
+	padding: 20px 5px 20px 5px;
+	border-radius: 10px;
+	box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
 
-	.container :nth-child(2){
-		left: 25vw !important;
-	}
-	
+#city{
+	font-size: 20px;
+	margin-top: 50px;
+}
 
+#temperatura{
+	font-size: 30px;
 }
